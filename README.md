@@ -24,11 +24,29 @@ Execute Django admin and create 10 Football players
 
 ## PROGRAM
 
-Include your code here
+```
+models.py
 
+from django.db import models
+from django.contrib import admin
+class Football (models.Model):
+    name=models.CharField(max_length=100)
+    salary=models.IntegerField()
+    age=models.IntegerField()
+    email=models.EmailField()
+    goals=models.IntegerField()
+class FootballAdmin(admin.ModelAdmin):
+    list_display=('name','salary','age','email','goals')
+
+ admin.py
+ from django.contrib import admin
+from .models import Football,FootballAdmin
+admin.site.register(Football,FootballAdmin)
+```
 ## OUTPUT
 
-Include the screenshot of your admin page.
+![image](https://github.com/subashraj21/ORM/assets/143729815/99165615-797a-4649-a0b7-f8f11878a37a)
+
 
 
 ## RESULT
